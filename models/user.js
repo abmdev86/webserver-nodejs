@@ -1,21 +1,16 @@
 const mongoose = require("mongoose");
-const setPassword = require("../auth/authHandler");
-
-
-
-
-
+const { setPassword } = require("../auth");
 
 const UserSchema = new mongoose.Schema({
-    email:{
-        type: String, 
-        required: true
-    },
-    password:{
-        type: String,
-        required: true,
-        set: setPassword
-    }
+  email: {
+    type: String,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+    set: setPassword,
+  },
 });
 
 const model = mongoose.model("User", UserSchema);
