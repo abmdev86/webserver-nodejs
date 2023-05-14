@@ -4,7 +4,6 @@ const sgMail = require("@sendgrid/mail");
 const router = express.Router();
 const { SecretManagerServiceClient } = require("@google-cloud/secret-manager");
 
-const parent = "projects/broke-dads-385418";
 const version = {
   name: "projects/660938725537/secrets/SENDGRID_API_KEY/versions/1",
 };
@@ -25,9 +24,9 @@ router.get("/", (req, res) => {
   res.send("Hello from router.");
 });
 
-router.get("/submit", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/form.html"));
-});
+// router.get("/submit", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../views/form.html"));
+// });
 
 router.post("/submit", (req, res) => {
   const msg = {
