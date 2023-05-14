@@ -2,10 +2,21 @@ const express = require("express");
 const path = require(`path`);
 const sgMail = require("@sendgrid/mail");
 const router = express.Router();
+const { SecretManagerServiceClient } = require("@google-cloud/secret-manager");
 
-router.use((req, res, next) => {
+const parent = "projects/broke-dads-385418";
+const version = {
+  name: "projects/660938725537/secrets/SENDGRID_API_KEY/versions/1",
+};
+router.use(async (req, res, next) => {
   console.log("Time: ", Date.now());
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+  const client = new SecretManagerServiceClient();
+  const response = await client.accessSecretVersion({
+    name: version.name,
+  });
+  const secret = response[0].payload.data.toString("UTF-8");
+
+  sgMail.setApiKey(secret);
 
   next();
 });
