@@ -1,5 +1,9 @@
-# Created by https://www.toptal.com/developers/gitignore/api/node
-# Edit at https://www.toptal.com/developers/gitignore?templates=node
+# Created by https://www.toptal.com/developers/gitignore/api/appengine,node
+# Edit at https://www.toptal.com/developers/gitignore?templates=appengine,node
+
+### AppEngine ###
+# Google App Engine generated folder
+appengine-generated/
 
 ### Node ###
 # Logs
@@ -141,4 +145,4 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
-# End of https://www.toptal.com/developers/gitignore/api/node
+# End of https://www.toptal.com/developers/gitignore/api/appengine,node
