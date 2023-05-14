@@ -17,6 +17,7 @@ router.get("/submit", (req, res) => {
 
 router.post("/submit", (req, res) => {
   console.log({
+    from: req.body.from,
     name: req.body.name,
     message: req.body.message,
   });
